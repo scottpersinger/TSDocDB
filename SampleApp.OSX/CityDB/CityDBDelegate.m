@@ -64,6 +64,8 @@
   TSFileReader *reader = [[TSFileReader alloc] initWithFilePath:[[NSBundle mainBundle] pathForResource:@"countryInfo" ofType:@"txt"]];
   NSArray *colNames = [NSArray arrayWithObjects:@"ISO",@"ISO3",@"ISO-Numeric",@"fips",@"Country",@"Capital",@"Area(in sq km)",@"Population",@"Continent",@"tld",@"CurrencyCode",@"CurrencyName",@"Phone",@"Postal Code Format",@"Postal Code Regex",@"Languages",@"geonameid",@"neighbours",@"EquivalentFipsCode",nil];
   [geonamesDB reindexDB:nil];
+  UIImage *image = [UIImage imageNamed:@"SamLogo.png"];
+  NSData *imageData = UIImageJPEGRepresentation(image, 0.2);
   [reader enumerateLinesUsingBlock:^(NSString *line, BOOL *stop, float progress){
     NSMutableDictionary *row = nil;
     if (![line hasPrefix:@"#"]) {
@@ -75,6 +77,7 @@
         }else
           break;
       }
+      [row setObject:imageData forKey:@"image"];
       [geonamesDB replaceRow:[row objectForKey:@"geonameid"] withRowType:@"country" andRowData:row];
       if(block != NULL){
         block(row, stop, progress);

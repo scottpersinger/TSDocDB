@@ -46,6 +46,12 @@
 - (void)viewDidLoad{
   [super viewDidLoad];
   cityDBDelegate = [[CityDBDelegate alloc] init];
+ 
+  // try to clear the db
+    NSLog(@"Before reset, num rows is: %d", [cityDBDelegate.geonamesDB getNumRowsOfType:@"country"]);
+  [cityDBDelegate.geonamesDB resetDB];
+    NSLog(@"After reset, num rows is: %d", [cityDBDelegate.geonamesDB getNumRowsOfType:@"country"]);
+    
   countries = [[NSMutableArray alloc] init];
   filteredCountries = [[NSMutableArray alloc] init];
   [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(addRows:) name:@"DBImportComplete" object:nil];
@@ -121,6 +127,13 @@
     [cell.textLabel setText:[[filteredCountries objectAtIndex:[indexPath row]] objectForKey:@"Country"]];
   }else{
     [cell.textLabel setText:[[countries objectAtIndex:[indexPath row]] objectForKey:@"Country"]];
+    NSDictionary *row = [countries objectAtIndex:[indexPath row]];
+      NSData *imageData = [row objectForKey:@"image"];
+      if (imageData != nil) {
+          UIImage *image = [UIImage imageWithData:imageData];
+          cell.imageView.image = image;
+      }
+      //NSLog(@"Row: %@", row);
   }
   return cell;
 }

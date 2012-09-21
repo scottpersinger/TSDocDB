@@ -138,6 +138,7 @@ static dispatch_queue_t tsDBMainQueue = NULL;
 
 -(void)removeDB:(NSString *)dbName atPathOrNil:(NSString *)dbContainerPathOrNil{
   __block TCTDB *tdb = NULL;
+    __block  NSError *error;
   dispatch_sync(tsDBManagerQueue, ^{
     int sp;
     NSString *dbFilePath, *dbPath;
@@ -149,7 +150,10 @@ static dispatch_queue_t tsDBMainQueue = NULL;
       tcmapout(tsDBs, [dbFilePath UTF8String], (int)strlen([dbFilePath UTF8String]));
     }
     NSFileManager *fm = [NSFileManager defaultManager];
-    [fm removeItemAtPath:dbPath error:NULL];
+    [fm removeItemAtPath:dbPath error:&error];
+      if (error != nil) {
+          NSLog(@"Error removing TSDB db file: %@", [error localizedDescription]);
+      }
     
   });
 }

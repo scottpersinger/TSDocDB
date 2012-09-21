@@ -26,7 +26,6 @@
 		3609E1C413ABE28F00063663 /* NSString+TSTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 362C9B5913A95EA200FCD8A4 /* NSString+TSTools.m */; };
 		3609E1C513ABE28F00063663 /* TSFileReader.m in Sources */ = {isa = PBXBuildFile; fileRef = 362C9B5B13A95EA200FCD8A4 /* TSFileReader.m */; };
 		3609E1C613ABE2D700063663 /* libTSDocDB.iOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 368F1E5213A3B80000835CBD /* libTSDocDB.iOS.a */; };
-		3609E1CC13ABE36600063663 /* libz.1.2.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3609E1CB13ABE36600063663 /* libz.1.2.3.dylib */; };
 		3609E1CE13ABE37B00063663 /* libbz2.1.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3609E1CD13ABE37B00063663 /* libbz2.1.0.dylib */; };
 		3609E1D213ABE5CF00063663 /* DBImportViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3609E1D013ABE5CF00063663 /* DBImportViewController.m */; };
 		3609E1D313ABE5CF00063663 /* DBImportViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3609E1D113ABE5CF00063663 /* DBImportViewController.xib */; };
@@ -166,6 +165,8 @@
 		6A2959761419404000431279 /* TSMutableDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A29597314193CD600431279 /* TSMutableDictionary.m */; };
 		6A2959771419404100431279 /* TSMutableDictionary.h in Headers */ = {isa = PBXBuildFile; fileRef = 6A29597214193CD600431279 /* TSMutableDictionary.h */; };
 		6A2959781419404100431279 /* TSMutableDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A29597314193CD600431279 /* TSMutableDictionary.m */; };
+		CC3B8D2615C62BB900F8E33C /* SamLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = CC3B8D2515C62BB900F8E33C /* SamLogo.png */; };
+		CC3B8D2815C62C7900F8E33C /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CC3B8D2715C62C7900F8E33C /* libz.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -304,6 +305,8 @@
 		36DE805013A59F9F00B2CAAC /* countryInfo.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = countryInfo.txt; sourceTree = "<group>"; };
 		6A29597214193CD600431279 /* TSMutableDictionary.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TSMutableDictionary.h; sourceTree = "<group>"; };
 		6A29597314193CD600431279 /* TSMutableDictionary.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TSMutableDictionary.m; sourceTree = "<group>"; };
+		CC3B8D2515C62BB900F8E33C /* SamLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SamLogo.png; sourceTree = "<group>"; };
+		CC3B8D2715C62C7900F8E33C /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS5.1.sdk/usr/lib/libz.dylib; sourceTree = DEVELOPER_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -311,8 +314,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CC3B8D2815C62C7900F8E33C /* libz.dylib in Frameworks */,
 				3609E1CE13ABE37B00063663 /* libbz2.1.0.dylib in Frameworks */,
-				3609E1CC13ABE36600063663 /* libz.1.2.3.dylib in Frameworks */,
 				3609E1C613ABE2D700063663 /* libTSDocDB.iOS.a in Frameworks */,
 				3609E19B13ABE0DB00063663 /* UIKit.framework in Frameworks */,
 				3609E19C13ABE0DB00063663 /* Foundation.framework in Frameworks */,
@@ -377,6 +380,7 @@
 		3609E1AB13ABE0DB00063663 /* iPhone */ = {
 			isa = PBXGroup;
 			children = (
+				CC3B8D2515C62BB900F8E33C /* SamLogo.png */,
 				3609E1AC13ABE0DB00063663 /* SampleApp_iOSAppDelegate_iPhone.h */,
 				3609E1AD13ABE0DB00063663 /* SampleApp_iOSAppDelegate_iPhone.m */,
 				3609E1AF13ABE0DB00063663 /* MainWindow_iPhone.xib */,
@@ -503,6 +507,7 @@
 		368F1E3213A3B78D00835CBD = {
 			isa = PBXGroup;
 			children = (
+				CC3B8D2715C62C7900F8E33C /* libz.dylib */,
 				3628738A13B81F490043DCBB /* capProject.png */,
 				3628738B13B81F490043DCBB /* capTarget.png */,
 				369E4F9E13A9584D005F33F3 /* TSDB.markdown */,
@@ -858,6 +863,7 @@
 				362243DF13AD57590021AF1C /* CountryTableViewController-iPad.xib in Resources */,
 				36AAE13313AED404007C0430 /* CityTableViewController.xib in Resources */,
 				36AAE13513AED42F007C0430 /* CityTableViewController-iPad.xib in Resources */,
+				CC3B8D2615C62BB900F8E33C /* SamLogo.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1061,6 +1067,7 @@
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_GC = unsupported;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SampleApp-iOS/SampleApp-iOS-Prefix.pch";
@@ -1086,6 +1093,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_GC = unsupported;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SampleApp-iOS/SampleApp-iOS-Prefix.pch";
 				GCC_VERSION = com.apple.compilers.llvmgcc42;
@@ -1133,7 +1141,7 @@
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
-				GCC_ENABLE_OBJC_GC = supported;
+				GCC_ENABLE_OBJC_GC = unsupported;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TSDocDB.OSX/TSDocDB.OSX-Prefix.pch";
@@ -1160,7 +1168,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
-				GCC_ENABLE_OBJC_GC = supported;
+				GCC_ENABLE_OBJC_GC = unsupported;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TSDocDB.OSX/TSDocDB.OSX-Prefix.pch";
 				GCC_VERSION = "";
@@ -1178,9 +1186,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				ARCHS = (
+					armv6,
+					armv7,
+					i386,
+				);
 				DSTROOT = /tmp/TSDocDB_iOS.dst;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_GC = unsupported;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TSDocDB.iOS/TSDocDB.iOS-Prefix.pch";
@@ -1193,6 +1206,7 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
+				VALID_ARCHS = "armv7 armv7s i386";
 			};
 			name = Debug;
 		};
@@ -1202,7 +1216,9 @@
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				DSTROOT = /tmp/TSDocDB_iOS.dst;
+				EXECUTABLE_PREFIX = lib;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_GC = unsupported;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TSDocDB.iOS/TSDocDB.iOS-Prefix.pch";
 				GCC_VERSION = com.apple.compilers.llvmgcc42;
@@ -1210,8 +1226,9 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "$(TARGET_NAME)_Release";
 				SDKROOT = iphoneos;
+				VALID_ARCHS = "armv7 armv7s i386";
 			};
 			name = Release;
 		};
