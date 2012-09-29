@@ -215,7 +215,7 @@
     listSize = [currentList count];
     [cityDBDelegate.geonamesDB setOrderByStringForColumn:@"Country" isAscending:YES];
   });
-  [cityDBDelegate.geonamesDB doSearchWithProcessingBlock:^(id row){
+  [cityDBDelegate.geonamesDB doSearchWithProcessingBlock:^(id row, BOOL lastResult){
     __block BOOL stop = NO;
     dispatch_sync(dispatch_get_main_queue(), ^{
       if(currentOp == opCount){

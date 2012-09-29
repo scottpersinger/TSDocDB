@@ -76,7 +76,7 @@ void useTSDB(){
 -(void)postNotificationWithNotificationName:(NSString *)notificationName andData:(id)data;
 -(void)adjustQuery:(TDBQRY *)qry withLimit:(NSUInteger)resultLimit andOffset:(NSUInteger) resultOffset;
 -(NSArray *)fetchRows:(TDBQRY *)qry;
--(void)fetchRows:(TDBQRY *)qry andProcessWithBlock:(BOOL(^)(id))processingBlock;
+-(void)fetchRows:(TDBQRY *)qry andProcessWithBlock:(BOOL(^)(id,BOOL))processingBlock;
 -(BOOL)indexCol:(NSString *)colName indexType:(NSInteger)colType;
 -(BOOL)dbPut:(NSString *)key colVals:(NSDictionary *)colVals;
 -(id)dbGet:(NSString *)rowID;
@@ -578,7 +578,7 @@ void useTSDB(){
 }
 
 #pragma mark DB Streaming Search Execution Methods
--(void)doSearchWithProcessingBlock:(BOOL(^)(id))processingBlock withLimit:(NSUInteger)resultLimit andOffset:(NSUInteger)resultOffset forRowTypes:(NSString *)rowType,...{
+-(void)doSearchWithProcessingBlock:(BOOL(^)(id,BOOL))processingBlock withLimit:(NSUInteger)resultLimit andOffset:(NSUInteger)resultOffset forRowTypes:(NSString *)rowType,...{
   NSMutableArray *rowTypes = [NSMutableArray arrayWithCapacity:1];
   GVargs(rowTypes, rowType, NSString);
   TCTDB *tdb = [self getDB];
@@ -735,7 +735,7 @@ void useTSDB(){
   TCTDB *db = [self getDB];
   return [theFilterChain getQuery:db];
 }
--(void)doPredifinedSearchWithQuery:(TDBQRY *)query andProcessingBlock:(BOOL(^)(id))processingBlock{
+-(void)doPredifinedSearchWithQuery:(TDBQRY *)query andProcessingBlock:(BOOL(^)(id,BOOL))processingBlock{
   [self fetchRows:query andProcessWithBlock:processingBlock];
 }
 -(NSArray *)doPredifinedSearchWithQuery:(TDBQRY *)query{
@@ -852,7 +852,7 @@ void useTSDB(){
   [filterChain removeAllFilters];
   return [rows autorelease];
 }
--(void)fetchRows:(TDBQRY *)qry andProcessWithBlock:(BOOL(^)(id))processingBlock{
+-(void)fetchRows:(TDBQRY *)qry andProcessWithBlock:(BOOL(^)(id, BOOL lastResult))processingBlock{
   __block TCLIST *res;
   dispatch_sync(dbQueue, ^{
     res = tctdbqrysearch(qry);  
@@ -862,11 +862,12 @@ void useTSDB(){
   BOOL stop;
   //NSLog(@"########################num res: %d", tclistnum(res));
   NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
-  for(i = 0; i < tclistnum(res); i++){
+  int count = tclistnum(res);
+  for(i = 0; i < count; i++){
     rbuf = tclistval(res, i, &rsiz);
     NSString *key = [NSString stringWithUTF8String:rbuf];
     //NSLog(@"k: %@", key);
-    stop = processingBlock([self dbGet:key]);
+    stop = processingBlock([self dbGet:key], i == (count-1));
     if(stop){
       break;
     }
