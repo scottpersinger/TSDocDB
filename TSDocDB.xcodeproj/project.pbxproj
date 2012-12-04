@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		3606F18F13A8F5D200E45C4F /* TSSearchField.m in Sources */ = {isa = PBXBuildFile; fileRef = 3606F18E13A8F5D200E45C4F /* TSSearchField.m */; };
-		3609E19B13ABE0DB00063663 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3609E19A13ABE0DB00063663 /* UIKit.framework */; };
 		3609E19C13ABE0DB00063663 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 368F1E5313A3B80000835CBD /* Foundation.framework */; };
 		3609E19E13ABE0DB00063663 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3609E19D13ABE0DB00063663 /* CoreGraphics.framework */; };
 		3609E1A413ABE0DB00063663 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3609E1A213ABE0DB00063663 /* InfoPlist.strings */; };
@@ -167,6 +166,15 @@
 		6A2959781419404100431279 /* TSMutableDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A29597314193CD600431279 /* TSMutableDictionary.m */; };
 		CC3B8D2615C62BB900F8E33C /* SamLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = CC3B8D2515C62BB900F8E33C /* SamLogo.png */; };
 		CC3B8D2815C62C7900F8E33C /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CC3B8D2715C62C7900F8E33C /* libz.dylib */; };
+		CC4BD6DE1641F921008E2D7A /* TSDB.h in Headers */ = {isa = PBXBuildFile; fileRef = CC4BD6DD1641F921008E2D7A /* TSDB.h */; };
+		CC4BD6DF1641F921008E2D7A /* TSDB.h in Headers */ = {isa = PBXBuildFile; fileRef = CC4BD6DD1641F921008E2D7A /* TSDB.h */; };
+		CC4BD6E31641F9AF008E2D7A /* secure_open.h in Headers */ = {isa = PBXBuildFile; fileRef = CC4BD6E11641F9AF008E2D7A /* secure_open.h */; };
+		CC4BD6E41641F9AF008E2D7A /* secure_open.h in Headers */ = {isa = PBXBuildFile; fileRef = CC4BD6E11641F9AF008E2D7A /* secure_open.h */; };
+		CC4BD6E51641F9AF008E2D7A /* secure_open.m in Sources */ = {isa = PBXBuildFile; fileRef = CC4BD6E21641F9AF008E2D7A /* secure_open.m */; };
+		CC4BD6E61641F9AF008E2D7A /* secure_open.m in Sources */ = {isa = PBXBuildFile; fileRef = CC4BD6E21641F9AF008E2D7A /* secure_open.m */; };
+		CC4BD6E71641F9AF008E2D7A /* secure_open.m in Sources */ = {isa = PBXBuildFile; fileRef = CC4BD6E21641F9AF008E2D7A /* secure_open.m */; };
+		CC4BD6E81641F9AF008E2D7A /* secure_open.m in Sources */ = {isa = PBXBuildFile; fileRef = CC4BD6E21641F9AF008E2D7A /* secure_open.m */; };
+		CC752DD0166D1CF800334B69 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC752DCF166D1CF800334B69 /* UIKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -307,6 +315,10 @@
 		6A29597314193CD600431279 /* TSMutableDictionary.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TSMutableDictionary.m; sourceTree = "<group>"; };
 		CC3B8D2515C62BB900F8E33C /* SamLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SamLogo.png; sourceTree = "<group>"; };
 		CC3B8D2715C62C7900F8E33C /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS5.1.sdk/usr/lib/libz.dylib; sourceTree = DEVELOPER_DIR; };
+		CC4BD6DD1641F921008E2D7A /* TSDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSDB.h; sourceTree = "<group>"; };
+		CC4BD6E11641F9AF008E2D7A /* secure_open.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = secure_open.h; sourceTree = "<group>"; };
+		CC4BD6E21641F9AF008E2D7A /* secure_open.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = secure_open.m; sourceTree = "<group>"; };
+		CC752DCF166D1CF800334B69 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS6.0.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -314,10 +326,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CC752DD0166D1CF800334B69 /* UIKit.framework in Frameworks */,
 				CC3B8D2815C62C7900F8E33C /* libz.dylib in Frameworks */,
 				3609E1CE13ABE37B00063663 /* libbz2.1.0.dylib in Frameworks */,
 				3609E1C613ABE2D700063663 /* libTSDocDB.iOS.a in Frameworks */,
-				3609E19B13ABE0DB00063663 /* UIKit.framework in Frameworks */,
 				3609E19C13ABE0DB00063663 /* Foundation.framework in Frameworks */,
 				3609E19E13ABE0DB00063663 /* CoreGraphics.framework in Frameworks */,
 			);
@@ -446,6 +458,8 @@
 				362C9AE213A95E9200FCD8A4 /* tctmgr.c */,
 				362C9AE813A95E9200FCD8A4 /* tcutil.c */,
 				362C9AE913A95E9200FCD8A4 /* tcutil.h */,
+				CC4BD6E11641F9AF008E2D7A /* secure_open.h */,
+				CC4BD6E21641F9AF008E2D7A /* secure_open.m */,
 			);
 			path = TokyoCabinet;
 			sourceTree = "<group>";
@@ -507,6 +521,7 @@
 		368F1E3213A3B78D00835CBD = {
 			isa = PBXGroup;
 			children = (
+				CC752DCF166D1CF800334B69 /* UIKit.framework */,
 				CC3B8D2715C62C7900F8E33C /* libz.dylib */,
 				3628738A13B81F490043DCBB /* capProject.png */,
 				3628738B13B81F490043DCBB /* capTarget.png */,
@@ -597,6 +612,7 @@
 			children = (
 				36A4EA2513A95DD200411208 /* assets */,
 				368F1E5C13A3B8EE00835CBD /* TSDB.h */,
+				CC4BD6DD1641F921008E2D7A /* TSDB.h */,
 				368F1E5D13A3B8EE00835CBD /* TSDB.m */,
 				368F1E5E13A3B8EE00835CBD /* TSDBManager.h */,
 				368F1E5F13A3B8EE00835CBD /* TSDBManager.m */,
@@ -711,6 +727,8 @@
 				362C9B6713A95EA200FCD8A4 /* NSString+TSTools.h in Headers */,
 				362C9B7113A95EA200FCD8A4 /* TSMacros.h in Headers */,
 				6A2959751419404000431279 /* TSMutableDictionary.h in Headers */,
+				CC4BD6DE1641F921008E2D7A /* TSDB.h in Headers */,
+				CC4BD6E31641F9AF008E2D7A /* secure_open.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -743,6 +761,8 @@
 				362C9B6813A95EA200FCD8A4 /* NSString+TSTools.h in Headers */,
 				362C9B7213A95EA200FCD8A4 /* TSMacros.h in Headers */,
 				6A2959771419404100431279 /* TSMutableDictionary.h in Headers */,
+				CC4BD6DF1641F921008E2D7A /* TSDB.h in Headers */,
+				CC4BD6E41641F9AF008E2D7A /* secure_open.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -900,6 +920,7 @@
 				3609E1D213ABE5CF00063663 /* DBImportViewController.m in Sources */,
 				365D45C513AC545000ED04E9 /* CountryTableViewController.m in Sources */,
 				36AAE13213AED404007C0430 /* CityTableViewController.m in Sources */,
+				CC4BD6E81641F9AF008E2D7A /* secure_open.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -936,6 +957,7 @@
 				362C9B6913A95EA200FCD8A4 /* NSString+TSTools.m in Sources */,
 				362C9B6E13A95EA200FCD8A4 /* TSFileReader.m in Sources */,
 				6A2959761419404000431279 /* TSMutableDictionary.m in Sources */,
+				CC4BD6E51641F9AF008E2D7A /* secure_open.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -972,6 +994,7 @@
 				362C9B6A13A95EA200FCD8A4 /* NSString+TSTools.m in Sources */,
 				362C9B6F13A95EA200FCD8A4 /* TSFileReader.m in Sources */,
 				6A2959781419404100431279 /* TSMutableDictionary.m in Sources */,
+				CC4BD6E61641F9AF008E2D7A /* secure_open.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -988,6 +1011,7 @@
 				362C9B6613A95EA200FCD8A4 /* NSNull+TSTools.m in Sources */,
 				362C9B6B13A95EA200FCD8A4 /* NSString+TSTools.m in Sources */,
 				362C9B7013A95EA200FCD8A4 /* TSFileReader.m in Sources */,
+				CC4BD6E71641F9AF008E2D7A /* secure_open.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

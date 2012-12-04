@@ -7,6 +7,7 @@
 #endif
 
 #define DB_STORAGE_AREA NSApplicationSupportDirectory
+#define DB_STORAGE_AREA_50 NSCachesDirectory
 
 #ifndef TSDB_BNUM
   #define TSDB_BNUM 610100

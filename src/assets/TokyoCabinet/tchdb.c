@@ -18,6 +18,7 @@
 #include "tchdb.h"
 #include "tcbdb.h"
 #include "myconf.h"
+#include "secure_open.h"
 
 #define HDBFILEMODE    00644             // permission of created files
 #define HDBIOBUFSIZ    8192              // size of an I/O buffer
@@ -3331,7 +3332,7 @@ static bool tchdbopenimpl(TCHDB *hdb, const char *path, int omode){
     mode = O_RDWR;
     if(omode & HDBOCREAT) mode |= O_CREAT;
   }
-  int fd = open(path, mode, HDBFILEMODE);
+  int fd = secure_open(path, mode, HDBFILEMODE);
   if(fd < 0){
     int ecode = TCEOPEN;
     switch(errno){

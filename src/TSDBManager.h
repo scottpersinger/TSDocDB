@@ -41,6 +41,7 @@
 -(TCTDB *)getDB:(NSString *)dbFilePath;
 -(void)recyleDBAtPath:(NSString *)dbFilePath;
 -(void)removeDB:(NSString *)dbName atPathOrNil:(NSString *)dbContainerPathOrNil;
+- (void)disablePathForCloudBackup:(NSString*)path;
 
 //Backup methods
 -(BOOL)restoreDB:(NSString *)dbName atPathOrNil:(NSString *)dbPath fromBackup:(NSString *)backupID;

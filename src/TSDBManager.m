@@ -27,6 +27,8 @@
 #import <Foundation/Foundation.h>
 #import "TSMacros.h"
 #import "NSString+TSTools.h"
+#import "UIKit/UIDevice.h"
+#import "secure_open.h"
 
 @interface TSDBManager()
 
@@ -143,7 +145,7 @@ static dispatch_queue_t tsDBMainQueue = NULL;
     int sp;
     NSString *dbFilePath, *dbPath;
     dbPath = [self directoryForDB:dbName withPathOrNil:dbContainerPathOrNil];
-    dbFilePath = [NSString stringWithFormat:@"%@/%@.tct", dbPath, dbName];
+    dbFilePath = [NSString stringWithFormat:@"%@.tct", dbPath];
     tdb = (TCTDB *)tcmapget(tsDBs, [dbFilePath UTF8String], (int)strlen([dbFilePath UTF8String]), &sp);
     if (tdb) {
       tctdbclose(tdb);
@@ -174,6 +176,7 @@ static dispatch_queue_t tsDBMainQueue = NULL;
   if (path == nil) {
     NSString *executableName = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleExecutable"];
     NSError *error;
+      
     result =
     [self
      findOrCreateDirectory:DB_STORAGE_AREA
@@ -185,13 +188,15 @@ static dispatch_queue_t tsDBMainQueue = NULL;
       NSLog(@"Unable to find or create application support directory:\n%@", error);
     } 
   }else{
+    NSString *dirPath = [NSString stringWithFormat:@"%@/%@", path, dbName];
     BOOL success = [[NSFileManager defaultManager]
-                    createDirectoryAtPath:[NSString stringWithFormat:@"%@/%@", path, dbName]
+                    createDirectoryAtPath:dirPath
                     withIntermediateDirectories:YES
                     attributes:nil
                     error:NULL];
     if (success) {
-      return [NSString stringWithFormat:@"%@/%@", path, dbName];
+      sec_disablePathForCloudBackup(dirPath);
+      return dirPath;
     }
   }
   
@@ -199,6 +204,11 @@ static dispatch_queue_t tsDBMainQueue = NULL;
 }
 
 - (NSString *)findOrCreateDirectory:(NSSearchPathDirectory)searchPathDirectory inDomain:(NSSearchPathDomainMask)domainMask appendPathComponent:(NSString *)appendComponent error:(NSError **)errorOut{
+    
+  if ([[[UIDevice currentDevice] systemVersion] compare:@"5.0" options:NSNumericSearch] == NSOrderedSame) {
+      searchPathDirectory = DB_STORAGE_AREA_50;
+  }
+    
   // Search for the path
   NSArray* paths = NSSearchPathForDirectoriesInDomains(
                                                        searchPathDirectory,
@@ -256,6 +266,7 @@ static dispatch_queue_t tsDBMainQueue = NULL;
   }
   return resolvedPath;
 }
+
 -(dispatch_queue_t)getQueueForDBPath:(NSString *)dbPath{
   //const char *queueKey = [[TSDBManager getQueueSigForDbPath:dbPath] UTF8String];
   //int sp;
